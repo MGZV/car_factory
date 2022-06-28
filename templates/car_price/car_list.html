@@ -1,0 +1,15 @@
+{% extends "car_price/base.html" %}
+ 
+{% block title %}Автомобили{% endblock %}
+ 
+{% block content %}
+  <h1>Автомобили</h1>
+
+<ul>
+{% for c in cars %}
+<li><a href="{% url 'car_detail' c.id %}"><h3>{{ c.name }}</h3></a></li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}

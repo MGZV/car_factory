@@ -1,0 +1,40 @@
+{% extends "car_price/base.html" %}
+ 
+{% block title %}Стоимость Автомобиля {{ car.name }}{% endblock %}
+ 
+{% block content %}
+  <h1>Стоимость Автомобиля {{ car.name }}</h1>
+
+<h3>Машина состоит из следующих деталей:</h3>
+<table>
+<tr><th>Наименование</th><th>Кол-во, шт.</th><th>Описание</th></tr>
+{% for detail in detail_car %}
+    <tr>
+    <td>{{ detail.detail.type }}</td>
+
+    <td>{{ detail.amount }}</td>
+    <td>{{ detail.detail.description }}</td>
+    </tr>
+{% endfor %}
+</table><br>
+
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+<!--        {{ form }}-->
+
+{% for f in form %}
+<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+<div class="form-error">{{ f.errors }}</div>
+{% endfor %}</table>
+<input type="submit" value="Узнать стоимость" />
+    </form>
+
+
+
+
+
+
+
+{% endblock %}

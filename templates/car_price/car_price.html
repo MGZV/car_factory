@@ -1,0 +1,9 @@
+{% extends "car_price/base.html" %}
+ 
+{% block title %}Стоимость автомобиля {{ car.name }}{% endblock %}
+ 
+{% block content %}
+  <h2>Стоимость автомобиля <b>{{ car.name }}</b> учитывая наценку <b>{{ car_price.margin }}</b>
+  составляет: <b>{{ car_price.total_price }}</b> рублей </h2>
+
+{% endblock %}
